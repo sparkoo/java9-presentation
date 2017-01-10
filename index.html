@@ -4,10 +4,10 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Java 9</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/simple.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -24,8 +24,87 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+
+				<section>
+					<section>
+						<h1>What's new in Java 9</h1>
+					</section>
+					<section>
+						<h2>Michal Vala</h2>
+						<ul>
+							<li>Software developer (Java)</li>
+							<li>OpenJDK Quality Enginner @ Red Hat</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Java</h1>
+					</section>
+					<section>
+						<h1>Java 8 ?</h1>
+						<h2 class="fragment">Lambda</h2>
+						<aside class="notes">
+							What was Java 8 about? Lambdas and stream API.
+						</aside>
+					</section>
+					<section>
+						<h1>Java 9 ?</h1>
+						<h2 class="fragment">Modules - Project Jigsaw</h2>
+						<ul>
+							<li class="fragment">new tools</li>
+							<li class="fragment">new APIs</li>
+							<li class="fragment">minor language changes</li>
+							<li class="fragment">internal changes</li>
+							<li class="fragment">removals, deprecations</li>
+							<li class="fragment">...</li>
+						</ul>
+						<aside class="notes">
+							Java 9 is about modules. But not just modules...
+						</aside>
+					</section>
+				</section>
+
+				<section>
+					<h1>Versioning</h1>
+				</section>
+
+				<section>
+					<h2>Garbage-First (G1)</h2>
+					<ul>
+						<li class="fragment">since Java 7</li>
+						<li class="fragment">default Garbage Collector in Java 9</li>
+						<li class="fragment">minimize pauses</li>
+					</ul>
+					<a href="neco">neco</a>
+					<aside class="notes">
+						Since 7.
+						Enhanced several times so in Java 9 it will become default garbage collector.
+						Current default is Parallel collector (Serial for single core).
+						Parallel - oriented to maximize throughput
+						G1 - oriented to minimize pauses
+					</aside>
+				</section>
+
+				<section>
+					<section>
+						<h2>@Deprecated</h2>
+						<ul>
+							<li>since 1.5</li>
+							<li>not clean meaning</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<h1>ttt</h1>
+					<pre><code>
+System.out.println("Hello");
+System.out.println("Hello World");
+					</code></pre>
+				</section>
+
 			</div>
 		</div>
 
@@ -36,6 +115,12 @@
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
 				history: true,
+				slideNumber: true,
+				mouseWheel: true,
+				transition: 'convex',
+				//parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				//parallaxBackgroundHorizontal: 1000,
+    			//parallaxBackgroundVertical: 20,
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
