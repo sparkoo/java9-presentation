@@ -51,11 +51,11 @@
 					</section>
 					<section>
 						<h1>Java 9 ?</h1>
-						<h2 class="fragment">Modules - Project Jigsaw</h2>
+						<h3 class="fragment">Modules - Project Jigsaw</h3>
 						<ul>
 							<li class="fragment">new tools</li>
 							<li class="fragment">new APIs</li>
-							<li class="fragment">minor language changes</li>
+							<li class="fragment">language changes</li>
 							<li class="fragment">internal changes</li>
 							<li class="fragment">removals, deprecations</li>
 							<li class="fragment">...</li>
@@ -67,7 +67,47 @@
 				</section>
 
 				<section>
-					<h1>Versioning</h1>
+					<section>
+						<h2>Version-String scheme</h2>
+						<p>
+							<span>8u74</span> ->
+							<span class="fragment">8u77 -> </span>
+							<span class="fragment">8u91 -> </span>
+							<span class="fragment">8u92 -> </span>
+							<span class="fragment">8u101 -> ...?</span>
+						</p>
+						<p class="fragment">
+							long version - 1.8.0_111-b14
+						</p>
+						<h1 class="fragment">WTF!</h1>
+						<aside class="notes">
+							<ul>
+								<li>Let's look to some java 8 versions in order.</li>
+								<li>Doesn't make much sense, but we might be happy it's at least in ascending order.</li>
+								<li>That's short version which is better than long version.</li>
+								<li>For 20 years it's 1.something and it looks like version 2 will never happen.</li>
+								<li>Problem is that 1.8.0 holds just one information - java 8.</li>
+								<li>But 111 holds 2 information - security and minor update</li>
+							</ul>
+						</aside>
+					</section>
+					<section>
+						<h2>Java 9</h2>
+						<p>
+							<ul>
+								<li>no 1.9.0_...</li>
+								<li>no two things in one number</li>
+								<li>$MAJOR.$MINOR.$SECURITY<+$BUILD></li>
+							</ul>
+						</p>
+						<p>
+							<span class="fragment">9 -> </span>
+							<span class="fragment">9.0.1 -> </span>
+							<span class="fragment">9.0.2 -> </span>
+							<span class="fragment">9.1.2 -> </span>
+							<span class="fragment">9.1.3 -> ...</span>
+						</p>
+					</section>
 				</section>
 
 				<section>
@@ -77,19 +117,26 @@
 						<li class="fragment">default Garbage Collector in Java 9</li>
 						<li class="fragment">minimize pauses</li>
 					</ul>
-					<a href="neco">neco</a>
 					<aside class="notes">
-						Since 7.
-						Enhanced several times so in Java 9 it will become default garbage collector.
-						Current default is Parallel collector (Serial for single core).
-						Parallel - oriented to maximize throughput
-						G1 - oriented to minimize pauses
+						<ul>
+							<li>G1 is available since 7.</li>
+							<li>Enhanced several times so in Java 9 it will become default garbage collector.</li>
+							<li>Current default is Parallel collector (Serial for single core).</li>
+							<li>Parallel - oriented to maximize throughput</li>
+							<li>G1 - oriented to minimize pauses</li>
+						</ul>
 					</aside>
 				</section>
-
 				<section>
 					<section>
 						<h2>@Deprecated</h2>
+						<ul>
+							<li>since 1.5</li>
+							<li>not clean meaning</li>
+						</ul>
+					</section>
+					<section>
+						<h2>@Deprecated in Java 9</h2>
 						<ul>
 							<li>since 1.5</li>
 							<li>not clean meaning</li>
