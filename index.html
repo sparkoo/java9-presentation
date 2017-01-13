@@ -20,6 +20,14 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
+		<style type="text/css">
+			.references {
+				position: absolute;
+				left: 0px;
+				bottom: 0px;
+				font-size: 15px !important;
+			}
+		</style>
 	</head>
 	<body>
 		<div class="reveal">
@@ -34,6 +42,10 @@
 						<ul>
 							<li>Software developer (Java)</li>
 							<li>OpenJDK Quality Enginner @ Red Hat</li>
+							<li><a href="https://plus.google.com/+MichalVala">plus.google.com/+MichalVala</a></li>
+							<li><a href="https://twitter.com/___Michal___">twitter.com/___Michal___</a></li>
+							<li><a href="https://github.com/sparkoo">github.com/sparkoo</a></li>
+							<li><a href="https://sparkoo.github.io/">sparkoo.github.io</a></li>
 						</ul>
 					</section>
 				</section>
@@ -41,17 +53,28 @@
 				<section>
 					<section>
 						<h1>Java</h1>
+						<aside class="notes">
+							<ul>
+								<li>Raise hands:</li>
+								<li>How many java developers?</li>
+								<li>Familiar with Java 8?</li>
+								<li>Tried Java9?</li>
+							</ul>
+						</aside>
 					</section>
 					<section>
-						<h1>Java 8 ?</h1>
-						<h2 class="fragment">Lambda</h2>
+						<h2>Java 8 ?</h2>
+						<h4 class="fragment">Lambda</h4>
+						<div class="references">
+							<a href="http://openjdk.java.net/projects/jdk8/">http://openjdk.java.net/projects/jdk8/</a>
+						</div>
 						<aside class="notes">
 							What was Java 8 about? Lambdas and stream API.
 						</aside>
 					</section>
 					<section>
-						<h1>Java 9 ?</h1>
-						<h3 class="fragment">Modules - Project Jigsaw</h3>
+						<h2>Java 9 ?</h2>
+						<h4 class="fragment">Modules - Project Jigsaw</h4>
 						<ul>
 							<li class="fragment">new tools</li>
 							<li class="fragment">new APIs</li>
@@ -60,8 +83,24 @@
 							<li class="fragment">removals, deprecations</li>
 							<li class="fragment">...</li>
 						</ul>
+						<div class="references">
+							<a href="http://openjdk.java.net/projects/jdk9/">http://openjdk.java.net/projects/jdk9/</a>
+						</div>
 						<aside class="notes">
 							Java 9 is about modules. But not just modules...
+						</aside>
+					</section>
+					<section>
+						<h2>Java 9 current state</h2>
+						<ul>
+							<li>in <strong>Rampdown</strong> state</li>
+							<li>general availability 27th July 2017</li>
+						</ul>
+						<div class="references">
+							<a href="http://openjdk.java.net/projects/jdk9/">http://openjdk.java.net/projects/jdk9/</a>
+						</div>
+						<aside class="notes">
+							Rampdown - all features in, available for developers, just P1-P3 bugfixes
 						</aside>
 					</section>
 				</section>
@@ -74,12 +113,15 @@
 							<span class="fragment">8u77 -> </span>
 							<span class="fragment">8u91 -> </span>
 							<span class="fragment">8u92 -> </span>
-							<span class="fragment">8u101 -> ...?</span>
+							<span class="fragment">8u101 -> ...</span>
 						</p>
 						<p class="fragment">
-							long version - 1.8.0_111-b14
+							long version - 1.8.0_101-b14
 						</p>
 						<h1 class="fragment">WTF!</h1>
+						<div class="references">
+							<a href="http://openjdk.java.net/jeps/223">http://openjdk.java.net/jeps/223</a>
+						</div>
 						<aside class="notes">
 							<ul>
 								<li>Let's look to some java 8 versions in order.</li>
@@ -87,7 +129,7 @@
 								<li>That's short version which is better than long version.</li>
 								<li>For 20 years it's 1.something and it looks like version 2 will never happen.</li>
 								<li>Problem is that 1.8.0 holds just one information - java 8.</li>
-								<li>But 111 holds 2 information - security and minor update</li>
+								<li>But 101 holds 2 information - security and minor update</li>
 							</ul>
 						</aside>
 					</section>
@@ -128,7 +170,7 @@
 					</aside>
 				</section>
 				<section>
-					<h2>@Deprecated in Java 9</h2>
+					<h2>@Deprecated</h2>
 					<ul>
 						<li>
 							2 new elements
@@ -143,7 +185,7 @@
 				</section>
 
 				<section>
-					<h1>ttt</h1>
+					<h2>ttt</h2>
 					<pre><code>
 System.out.println("Hello");
 System.out.println("Hello World");
