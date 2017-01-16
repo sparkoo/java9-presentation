@@ -1,222 +1,299 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Java 9</title>
+        <title>Java 9</title>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/simple.css">
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/simple.css">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-		<style type="text/css">
-			.references {
-				position: absolute;
-				left: 0px;
-				bottom: 0px;
-				font-size: 15px !important;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+        <style type="text/css">
+            .references {
+                position: absolute;
+                left: 0px;
+                bottom: 0px;
+                font-size: 15px !important;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
 
-				<section>
-					<section>
-						<h1>What's new in Java 9</h1>
-					</section>
-					<section>
-						<h2>Michal Vala</h2>
-						<ul>
-							<li>Software developer (Java)</li>
-							<li>OpenJDK Quality Enginner @ Red Hat</li>
-							<li><a href="https://plus.google.com/+MichalVala">plus.google.com/+MichalVala</a></li>
-							<li><a href="https://twitter.com/___Michal___">twitter.com/___Michal___</a></li>
-							<li><a href="https://github.com/sparkoo">github.com/sparkoo</a></li>
-							<li><a href="https://sparkoo.github.io/">sparkoo.github.io</a></li>
-						</ul>
-					</section>
-				</section>
+                <section>
+                    <section>
+                        <h1>What's new in Java 9</h1>
+                    </section>
+                    <section>
+                        <h2>Michal Vala</h2>
+                        <ul>
+                            <li>Software developer (Java)</li>
+                            <li>OpenJDK Quality Enginner @ Red Hat</li>
+                            <li><a href="https://plus.google.com/+MichalVala">plus.google.com/+MichalVala</a></li>
+                            <li><a href="https://twitter.com/___Michal___">twitter.com/___Michal___</a></li>
+                            <li><a href="https://github.com/sparkoo">github.com/sparkoo</a></li>
+                            <li><a href="https://sparkoo.github.io/">sparkoo.github.io</a></li>
+                        </ul>
+                    </section>
+                </section>
 
-				<section>
-					<section>
-						<h1>Java</h1>
-						<aside class="notes">
-							<ul>
-								<li>Raise hands:</li>
-								<li>How many java developers?</li>
-								<li>Familiar with Java 8?</li>
-								<li>Tried Java9?</li>
-							</ul>
-						</aside>
-					</section>
-					<section>
-						<h2>Java 8 ?</h2>
-						<h4 class="fragment">Lambda</h4>
-						<div class="references">
-							<a href="http://openjdk.java.net/projects/jdk8/">http://openjdk.java.net/projects/jdk8/</a>
-						</div>
-						<aside class="notes">
-							What was Java 8 about? Lambdas and stream API.
-						</aside>
-					</section>
-					<section>
-						<h2>Java 9 ?</h2>
-						<h4 class="fragment">Modules - Project Jigsaw</h4>
-						<ul>
-							<li class="fragment">new tools</li>
-							<li class="fragment">new APIs</li>
-							<li class="fragment">language changes</li>
-							<li class="fragment">internal changes</li>
-							<li class="fragment">removals, deprecations</li>
-							<li class="fragment">...</li>
-						</ul>
-						<div class="references">
-							<a href="http://openjdk.java.net/projects/jdk9/">http://openjdk.java.net/projects/jdk9/</a>
-						</div>
-						<aside class="notes">
-							Java 9 is about modules. But not just modules...
-						</aside>
-					</section>
-					<section>
-						<h2>Java 9 current state</h2>
-						<ul>
-							<li>in <strong>Rampdown</strong> state</li>
-							<li>general availability 27th July 2017</li>
-						</ul>
-						<div class="references">
-							<a href="http://openjdk.java.net/projects/jdk9/">http://openjdk.java.net/projects/jdk9/</a>
-						</div>
-						<aside class="notes">
-							Rampdown - all features in, available for developers, just P1-P3 bugfixes
-						</aside>
-					</section>
-				</section>
+                <section>
+                    <section>
+                        <h1>Java</h1>
+                        <aside class="notes">
+                            <ul>
+                                <li>Raise hands:</li>
+                                <li>How many java developers?</li>
+                                <li>Familiar with Java 8?</li>
+                                <li>Tried Java9?</li>
+                            </ul>
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Java 8 ?</h2>
+                        <h4 class="fragment">Lambda</h4>
+                        <div class="references">
+                            <a href="http://openjdk.java.net/projects/jdk8/">http://openjdk.java.net/projects/jdk8/</a>
+                        </div>
+                        <aside class="notes">
+                            What was Java 8 about? Lambdas and stream API.
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Java 9 ?</h2>
+                        <h4 class="fragment">Modules - Project Jigsaw</h4>
+                        <ul>
+                            <li class="fragment">new tools</li>
+                            <li class="fragment">new APIs</li>
+                            <li class="fragment">language changes</li>
+                            <li class="fragment">internal changes</li>
+                            <li class="fragment">removals, deprecations</li>
+                            <li class="fragment">...</li>
+                        </ul>
+                        <div class="references">
+                            <a href="http://openjdk.java.net/projects/jdk9/">http://openjdk.java.net/projects/jdk9/</a>
+                        </div>
+                        <aside class="notes">
+                            Java 9 is about modules. But not just modules...
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Java 9 current state</h2>
+                        <ul>
+                            <li>in <strong>Rampdown</strong> phase</li>
+                            <li>GA 27th July 2017</li>
+                        </ul>
+                        <div class="references">
+                            <a href="http://openjdk.java.net/projects/jdk9/">http://openjdk.java.net/projects/jdk9/</a>
+                        </div>
+                        <aside class="notes">
+                            Rampdown - all features in, available for developers, just P1-P3 bugfixes
+                        </aside>
+                    </section>
+                </section>
 
-				<section>
-					<section>
-						<h2>Version-String scheme</h2>
-						<p>
-							<span>8u74</span> ->
-							<span class="fragment">8u77 -> </span>
-							<span class="fragment">8u91 -> </span>
-							<span class="fragment">8u92 -> </span>
-							<span class="fragment">8u101 -> ...</span>
-						</p>
-						<p class="fragment">
-							long version - 1.8.0_101-b14
-						</p>
-						<h1 class="fragment">WTF!</h1>
-						<div class="references">
-							<a href="http://openjdk.java.net/jeps/223">http://openjdk.java.net/jeps/223</a>
-						</div>
-						<aside class="notes">
-							<ul>
-								<li>Let's look to some java 8 versions in order.</li>
-								<li>Doesn't make much sense, but we might be happy it's at least in ascending order.</li>
-								<li>That's short version which is better than long version.</li>
-								<li>For 20 years it's 1.something and it looks like version 2 will never happen.</li>
-								<li>Problem is that 1.8.0 holds just one information - java 8.</li>
-								<li>But 101 holds 2 information - security and minor update</li>
-							</ul>
-						</aside>
-					</section>
-					<section>
-						<h2>Java 9</h2>
-						<p>
-							<ul>
-								<li>no 1.9.0_...</li>
-								<li>no two things in one number</li>
-								<li>$MAJOR.$MINOR.$SECURITY<+$BUILD></li>
-							</ul>
-						</p>
-						<p>
-							<span class="fragment">9 -> </span>
-							<span class="fragment">9.0.1 -> </span>
-							<span class="fragment">9.0.2 -> </span>
-							<span class="fragment">9.1.2 -> </span>
-							<span class="fragment">9.1.3 -> ...</span>
-						</p>
-					</section>
-				</section>
+                <section>
+                    <section>
+                        <h2>Version-String scheme</h2>
+                        <p>
+                            <span>8u74</span> ->
+                            <span class="fragment">8u77 -> </span>
+                            <span class="fragment">8u91 -> </span>
+                            <span class="fragment">8u92 -> </span>
+                            <span class="fragment">8u101 -> ...</span>
+                        </p>
+                        <p class="fragment">
+                            long version - 1.8.0_101-b14
+                        </p>
+                        <h1 class="fragment">WTF!</h1>
+                        <div class="references">
+                            <a href="http://openjdk.java.net/jeps/223">http://openjdk.java.net/jeps/223</a>
+                        </div>
+                        <aside class="notes">
+                            <ul>
+                                <li>Let's look to some java 8 versions in order.</li>
+                                <li>Doesn't make much sense, but we might be happy it's at least in ascending order.</li>
+                                <li>That's short version which is better than long version.</li>
+                                <li>For 20 years it's 1.something and it looks like version 2 will never happen.</li>
+                                <li>Problem is that 1.8.0 holds just one information - java 8.</li>
+                                <li>But 101 holds 2 information - security and minor update</li>
+                            </ul>
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Java 9</h2>
+                        <p>
+                            <ul>
+                                <li>no 1.9.0_...</li>
+                                <li>no two things in one number</li>
+                                <li>$MAJOR.$MINOR.$SECURITY<+$BUILD></li>
+                            </ul>
+                        </p>
+                        <p>
+                            <span class="fragment">9 -> </span>
+                            <span class="fragment">9.0.1 -> </span>
+                            <span class="fragment">9.0.2 -> </span>
+                            <span class="fragment">9.1.2 -> </span>
+                            <span class="fragment">9.1.3 -> ...</span>
+                        </p>
+                        <div class="references">
+                            <a href="http://openjdk.java.net/jeps/223">http://openjdk.java.net/jeps/223</a>
+                        </div>
+                    </section>
+                </section>
 
-				<section>
-					<h2>Garbage-First (G1)</h2>
-					<ul>
-						<li class="fragment">since Java 7</li>
-						<li class="fragment">default Garbage Collector in Java 9</li>
-						<li class="fragment">minimize pauses</li>
-					</ul>
-					<aside class="notes">
-						<ul>
-							<li>G1 is available since 7.</li>
-							<li>Enhanced several times so in Java 9 it will become default garbage collector.</li>
-							<li>Current default is Parallel collector (Serial for single core).</li>
-							<li>Parallel - oriented to maximize throughput</li>
-							<li>G1 - oriented to minimize pauses</li>
-						</ul>
-					</aside>
-				</section>
-				<section>
-					<h2>@Deprecated</h2>
-					<ul>
-						<li>
-							2 new elements
-							<ul>
-								<li>since : String</li>
-								<li>forRemoval : boolean</li>
-							</ul>
-						</li>
-						<li>will help remove API from jdk ?</li>
-						<li>jdeprscan [demo]</li>
-					</ul>
-				</section>
+                <section>
+                    <h2>Garbage-First (G1)</h2>
+                    <ul>
+                        <li class="fragment">since Java 7</li>
+                        <li class="fragment">default Garbage Collector in Java 9</li>
+                        <li class="fragment">minimize pauses</li>
+                    </ul>
+                    <div class="references">
+                        <a href="http://openjdk.java.net/jeps/248">http://openjdk.java.net/jeps/248</a>
+                    </div>
+                    <aside class="notes">
+                        <ul>
+                            <li>G1 is available since 7.</li>
+                            <li>Enhanced several times so in Java 9 it will become default garbage collector.</li>
+                            <li>Current default is Parallel collector (Serial for single core).</li>
+                            <li>Parallel - oriented to maximize throughput</li>
+                            <li>G1 - oriented to minimize pauses</li>
+                        </ul>
+                    </aside>
+                </section>
+                <section>
+                    <h2>@Deprecated</h2>
+                    <ul>
+                        <li>
+                            2 new elements
+                            <ul>
+                                <li>since : String</li>
+                                <li>forRemoval : boolean</li>
+                            </ul>
+                        </li>
+                        <li>will help remove API from jdk ?</li>
+                        <li>jdeprscan [demo]</li>
+                    </ul>
+                    <div class="references">
+                        <a href="http://openjdk.java.net/jeps/277">http://openjdk.java.net/jeps/277</a>
+                    </div>
+                    <aside class="notes">
+                        <ul>
+                            <li></li>
+                        </ul>
+                    </aside>
+                </section>
 
-				<section>
-					<h2>ttt</h2>
-					<pre><code>
-System.out.println("Hello");
-System.out.println("Hello World");
-					</code></pre>
-				</section>
+                <section>
+                    <h2>JShell</h2>
+                    <ul>
+                        <li>Read Eval Print Loop (REPL) [demo]</li>
+                    </ul>
+                    <div class="references">
+                        <a href="http://openjdk.java.net/jeps/222">http://openjdk.java.net/jeps/222</a>
+                    </div>
+                </section>
 
-			</div>
-		</div>
+                <section>
+                    <section>
+                        <h2>Language updates</h2>
+                        <ul>
+                            <li>Project Coin</li>
+                            <li class="fragment">@SafeVargs on private instance methods</li>
+                            <li class="fragment">effectively-final variables in try-with-resources</li>
+                            <li class="fragment">Diamond with anonymous class</li>
+                            <li class="fragment">'_' no longer valid identifier</li>
+                            <li class="fragment">private methods in interfaces</li>
+                        </ul>
+                        <div class="references">
+                            <a href="http://openjdk.java.net/jeps/213">http://openjdk.java.net/jeps/213</a>
+                        </div>
+                    </section>
+                    <section>
+                        <h2>try-with-resources</h2>
+                        Java 8
+                        <pre><code class="java hljs">
+try (SomeCloseableClass s = new SomeCloseableClass()) {
+    ...
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>try-with-resources</h2>
+                        Java 9
+                        <pre><code class="java hljs">
+SomeCloseableClass s = new SomeCloseableClass();
+try (s) {
+    ...
+}
+                        </code></pre>
+                        <pre><code class="java hljs">
+void method(AutoCloseable s) {
+    try (s) {
+        ...
+    }
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>&lt;&gt; with anonymous class</h2>
+                        Java 8
+                        <pre><code class="java hljs">
+Iface&lt;String&gt; anonymous = new Iface&lt;String&gt;() {
+    ...
+};
+                        </code></pre>
+                        Java 9
+                        <pre><code class="java hljs">
+Iface&lt;String&gt; anonymous = new Iface&lt;&gt;() {
+    ...
+};
+                        </code></pre>
+                    </section>
+                </section>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+                <section>
+                    <h2>new API</h2>
+                </section>
+            </div>
+        </div>
 
-		<script>
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				history: true,
-				slideNumber: true,
-				mouseWheel: true,
-				transition: 'convex',
-				//parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-				//parallaxBackgroundHorizontal: 1000,
-    			//parallaxBackgroundVertical: 20,
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
 
-				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+        <script>
+            // More info https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                history: true,
+                slideNumber: true,
+                mouseWheel: true,
+                transition: 'slide',
+                //parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+                //parallaxBackgroundHorizontal: 1000,
+                //parallaxBackgroundVertical: 20,
+
+                // More info https://github.com/hakimel/reveal.js#dependencies
+                dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+        </script>
+    </body>
 </html>
