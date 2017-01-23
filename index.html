@@ -275,6 +275,7 @@ c = 11
                             </ul>
                         </aside>
                     </section>
+
                     <section>
                         <h2>try-with-resources</h2>
                         Java 8
@@ -284,6 +285,7 @@ try (SomeCloseableClass s = new SomeCloseableClass()) {
 }
                         </code></pre>
                     </section>
+
                     <section>
                         <h2>try-with-resources</h2>
                         Java 9
@@ -304,6 +306,7 @@ void method(AutoCloseable s) {
                             as long as variable is final or effectivly final, can use without declaration
                         </aside>
                     </section>
+
                     <section>
                         <h2>&lt;&gt; with anonymous class</h2>
                         Java 8
@@ -327,20 +330,145 @@ Iface&lt;String&gt; anonymous = new Iface&lt;&gt;() {
                 </section>
 
                 <section>
-                    <h2>new API</h2>
-                    <ul>
-                        <li>HTTP/2 Client</li>
-                        <li>Stream</li>
-                        <li>List/Map/Set factory methods</li>
-                        <li>Optional</li>
-                        <li>Process</li>
-                        <li>...</li>
-                    </ul>
-                    <div class="references">
-                        <a href="http://openjdk.java.net/jeps/110">JEP 110: HTTP/2 Client (Incubator)</a><br />
-                        <a href="http://openjdk.java.net/jeps/269">JEP 269: Convenience Factory Methods for Collections</a><br />
-                        <a href="http://openjdk.java.net/jeps/102">JEP 102: Process API Updates</a>
-                    </div>
+                    <section>
+                        <h2>new APIs</h2>
+                        <ul>
+                            <li>HTTP/2 Client</li>
+                            <li>Process API</li>
+                            <li>List/Map/Set - factory methods</li>
+                            <li>Stream - new methods</li>
+                            <li>Optional - new methods</li>
+                            <li>...</li>
+                        </ul>
+                        <div class="references">
+                            <a href="http://openjdk.java.net/jeps/110">JEP 110: HTTP/2 Client (Incubator)</a><br />
+                            <a href="http://openjdk.java.net/jeps/102">JEP 102: Process API Updates</a><br />
+                            <a href="http://openjdk.java.net/jeps/269">JEP 269: Convenience Factory Methods for Collections</a>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>GET request in Java</h2>
+                        <pre><code class="java hljs">
+StringBuilder result = new StringBuilder();
+URL url = new URL("http://...");
+HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+conn.setRequestMethod("GET");
+BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+String line;
+while ((line = rd.readLine()) != null) {
+ result.append(line);
+}
+rd.close();
+return result.toString();
+</code></pre>
+                        <div class="references">
+                            <a href="http://stackoverflow.com/a/1485730">http://stackoverflow.com/a/1485730</a>
+                        </div>
+                        <aside class="notes">
+                            <ul>
+                                <li>from stackowerflow</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>GET with HTTP/2 Client</h2>
+                        <pre><code class="java hljs">
+HttpClient client = HttpClient.newHttpClient();
+HttpRequest request = HttpRequest.newBuilder()
+        .uri(new URI("http://..."))
+        .GET()
+        .build();
+
+HttpResponse&lt;String&gt; response =
+    client.send(request, HttpResponse.BodyHandler.asString());
+return response.body();
+</pre></code>
+                        <p>[demo]</p>
+                        <p class="fragment">unfortunately in incubator</p>
+                        <div class="references">
+                            <a href="http://openjdk.java.net/jeps/110">JEP 110: HTTP/2 Client (Incubator)</a><br />
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Process API (old way)</h2>
+                        How get all running processes?
+                        <pre><code class="java hljs">
+String line;
+Process p = Runtime.getRuntime().exec("ps -e");
+BufferedReader input =
+        new BufferedReader(new InputStreamReader(p.getInputStream()));
+while ((line = input.readLine()) != null) {
+    System.out.println(line); //<-- Parse data here.
+}
+input.close();
+                        </code></pre>
+                        <div class="references">
+                            <a href="http://stackoverflow.com/a/54950">http://stackoverflow.com/a/54950</a>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Process API</h2>
+                        <pre><code class="java hljs">
+ProcessHandle.allProcesses()    // returns Stream&lt;ProcessHandle&gt;
+                        </code></pre>
+                        [demo?]
+                        <div class="references">
+                            <a href="http://download.java.net/java/jdk9/docs/api/java/lang/ProcessHandle.html">ProcessHandle javadoc</a>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>List/Map/Set - factory methods</h2>
+                        <pre><code class="java hljs">
+List&lt;Integer&gt; list = List.of(1, 2, 3, 4, 5);
+Set&lt;Integer&gt; set = Set.of(1, 2, 3, 4, 5);
+Map&lt;Integer, Integer&gt; map = Map.of(1, 11, 2, 22, 3, 33, 4, 44);
+Map&lt;Integer, Integer&gt; map2 = Map.ofEntries(
+    Map.entry(1, 11),
+    Map.entry(2, 22),
+    Map.entry(3, 33),
+    Map.entry(4, 44));
+                        </code></pre>
+                        <div class="references">
+                        <a href="http://download.java.net/java/jdk9/docs/api/java/util/List.html">List javadoc</a><br />
+                        <a href="http://download.java.net/java/jdk9/docs/api/java/util/Map.html">Map javadoc</a><br />
+                        <a href="http://download.java.net/java/jdk9/docs/api/java/util/Set.html">Set javadoc</a>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>New methods is Stream</h2>
+                        <pre><code class="java hljs">
+static &lt;T&gt; Stream&lt;T&gt; iterate(T seed,
+    Predicate&lt;? super T&gt; hasNext,
+    UnaryOperator&lt;T&gt; next)
+default Stream&lt;T&gt; dropWhile(Predicate&lt;? super T&gt; predicate)
+default Stream&lt;T&gt; takeWhile(Predicate&lt;? super T&gt; predicate)
+                        </code></pre>
+                        [demo]
+                        <div class="references">
+                            <a href="http://download.java.net/java/jdk9/docs/api/java/util/stream/Stream.html">Stream javadoc</a>
+                        </div>
+                        <aside class="notes">
+                            JShell demo
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>New methods in Optional</h2>
+                        <pre><code class="java hljs">
+public void ifPresentOrElse(Consumer&lt;? super T&gt; action,
+    Runnable emptyAction)
+                        </code></pre>
+                        <pre class="fragment"><code class="java hljs">
+optional.ifPresentOrElse(val -> ...,
+    () -> log("got nothing"));
+                        </code></pre>
+                    </section>
                 </section>
 
                 <section>

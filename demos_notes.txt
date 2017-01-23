@@ -45,3 +45,11 @@ ls
 /imports            - show what's imported
 /reset              
 /list
+
+
+
+Stream API
+==========
+Stream.iterate(0, i -> i < 10, i -> i + 1).forEach(System.out::println)
+Stream.iterate(0, i -> i < 10, i -> i + 1).takeWhile(i -> i < 5).forEach(System.out::println)
+Stream.iterate(0, i -> i < 10, i -> i + 1).dropWhile(i -> i < 5).forEach(System.out::println)
