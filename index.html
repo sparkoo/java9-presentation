@@ -189,7 +189,7 @@
                                 <li>forRemoval : boolean</li>
                             </ul>
                         </li>
-                        <li>will help remove API from jdk ?</li>
+                        <li>will help remove old API from jdk ?</li>
                         <li>jdeprscan [demo]</li>
                     </ul>
                     <div class="references">
@@ -197,24 +197,61 @@
                     </div>
                     <aside class="notes">
                         <ul>
-                            <li></li>
+                            <li>since - tells from which version is api marked as deprecated</li>
+                            <li>forRemoval - will be removed in next major release (jdk9)</li>
                         </ul>
                     </aside>
                 </section>
 
                 <section>
-                    <h2>JShell</h2>
-                    <ul>
-                        <li>Read Eval Print Loop (REPL) [demo]</li>
-                    </ul>
-                    <div class="references">
-                        <a href="http://openjdk.java.net/jeps/222">JEP 222: jshell: The Java Shell (Read-Eval-Print Loop)</a>
-                    </div>
+                    <section>
+                        <h2>JShell</h2>
+                        <p>Read Eval Print Loop (REPL)</p>
+                        <p class="fragment">but why?</p>
+                        <ul>
+                            <li class="fragment">learn/teach</li>
+                            <li class="fragment">microtesting</li>
+                            <li class="fragment">API -> new tools</li>
+                        </ul>
+                        <div class="references">
+                            <a href="http://openjdk.java.net/jeps/222">JEP 222: jshell: The Java Shell (Read-Eval-Print Loop)</a>
+                        </div>
+                        <aside class="notes">
+                            <ul>
+                                <li>JShell is one of new tools in bin directory.</li>
+                                <li>Many languages has REPL (lisp from 1958, python), even jvm languages like Scala, Clojure</li>
+                                <li>For 20 years we lived without REPL in java. Why would we want it?</li>
+                                <li>Learn or teach someone. Show how java looks like. It might be really verbose for newcomers to start with java class.</li>
+                                <li>Microtesting - try some small part of code without writing unit test.</li>
+                                <li>Jshell has API so it opens door for new tools (for example to IDE).</li>
+                            </ul>
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>JShell API</h2>
+                        <pre><code class="java hljs">
+try (JShell jShell = JShell.create()) {
+    jShell.eval("int a = 5;");
+    jShell.eval("int b = 6;");
+    jShell.eval("int c = a + b;");
+    jShell.variables().forEach(
+        v -> log(v.name() + " = " + jShell.varValue(v)));
+}
+                        </code></pre>
+                        <pre class="fragment"><code class="java hljs">
+a = 5
+b = 6
+c = 11
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>JShell [demo]</h2>
+                    </section>
                 </section>
 
                 <section>
                     <section>
-                        <h2>Language updates</h2>
+                        <h2>Small language changes</h2>
                         <ul>
                             <li>Project Coin</li>
                             <li class="fragment">@SafeVargs on private instance methods</li>
@@ -224,8 +261,19 @@
                             <li class="fragment">private methods in interfaces</li>
                         </ul>
                         <div class="references">
-                            <a href="http://openjdk.java.net/jeps/213">JEP 213: Milling Project Coin</a>
+                            <a href="http://openjdk.java.net/jeps/213">JEP 213: Milling Project Coin</a><br />
+                            <a href="http://openjdk.java.net/projects/coin/">Project Coin</a>
                         </div>
+                        <aside class="notes">
+                            <ul>
+                                <li>Project coin is project for small language changes (strings in switch, diamond, multi-catch, ...)</li>
+                                <li>@SafeVargs annotation for programmers. By definition could be on final elements, which private methods are. In java 8 it was not possible</li>
+                                <li>try with resources show example</li>
+                                <li>diamond example</li>
+                                <li>_ warning in java 8, now error</li>
+                                <li>Default methods in interfaces from java 8. now private methods to support them.</li>
+                            </ul>
+                        </aside>
                     </section>
                     <section>
                         <h2>try-with-resources</h2>
@@ -252,6 +300,9 @@ void method(AutoCloseable s) {
     }
 }
                         </code></pre>
+                        <aside class="notes">
+                            as long as variable is final or effectivly final, can use without declaration
+                        </aside>
                     </section>
                     <section>
                         <h2>&lt;&gt; with anonymous class</h2>
@@ -267,6 +318,11 @@ Iface&lt;String&gt; anonymous = new Iface&lt;&gt;() {
     ...
 };
                         </code></pre>
+                        <aside class="notes">
+                            <ul>
+                                <li>When type is clear, you don't have to write it explicitly.</li>
+                            </ul>
+                        </aside>
                     </section>
                 </section>
 

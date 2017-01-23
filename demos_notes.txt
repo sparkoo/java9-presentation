@@ -1,0 +1,47 @@
+Jdeprscan
+=========
+/opt/java/jdk-9/bin
+./jdeprscan
+./jdeprscan --list
+./jdeprscan --list --for-removal
+
+
+JShell
+======
+/opt/java/jdk-9/bin
+./jshell
+> a = 5 // fail
+> int a = 5
+> a = 6
+> int b = 4
+> a + b
+> /v
+> int add(int x, int y) { return x + y; }
+> add(a, b)
+> /m
+> /edit add
+     return x + y + 1;
+> class A {}
+> new A()
+> /edit A
+     void hello() { System.out.println("hello"); }
+> new A().hello()
+
+autocomplete 
+> a // tab
+> System.out. // tab
+> System.out.pr // tab
+
+jshell commands
+/v                  - variables
+/m                  - methods
+/t                  - types (classes)
+/list               - all snippets
+/history            - history of commands
+/save file.txt      - save snippets to file
+/exit               - exit jshell
+ls
+/open file.txt      - loads saved file
+/imports            - show what's imported
+/reset              
+/list
