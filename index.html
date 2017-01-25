@@ -70,7 +70,7 @@
                             <a href="http://openjdk.java.net/projects/jdk8/">http://openjdk.java.net/projects/jdk8/</a>
                         </div>
                         <aside class="notes">
-                            What was Java 8 about? Lambdas and stream API.
+                            What was Java 8 about? Key feature. Lambdas and stream API.
                         </aside>
                     </section>
                     <section>
@@ -101,7 +101,10 @@
                             <a href="http://openjdk.java.net/projects/jdk9/">http://openjdk.java.net/projects/jdk9/</a>
                         </div>
                         <aside class="notes">
-                            Rampdown - all features in, available for developers, just P1-P3 bugfixes
+                            <ul>
+                                <li>Rampdown - all features in, available for developers, just P1-P3 bugfixes. New features in very rare cases.</li>
+                                <li>Postponed 2 times, from September 2016</li>
+                            </ul>
                         </aside>
                     </section>
                 </section>
@@ -256,7 +259,7 @@ c = 11
                             <li>Project Coin</li>
                             <li class="fragment">@SafeVargs on private instance methods</li>
                             <li class="fragment">effectively-final variables in try-with-resources</li>
-                            <li class="fragment">Diamond with anonymous class</li>
+                            <li class="fragment">diamond with anonymous class</li>
                             <li class="fragment">'_' no longer valid identifier</li>
                             <li class="fragment">private methods in interfaces</li>
                         </ul>
@@ -472,7 +475,160 @@ optional.ifPresentOrElse(val -> ...,
                 </section>
 
                 <section>
-                    <h2>Modules</h2>
+                    <section>
+                        <h2>Modules</h2>
+                        <ul>
+                            <li class="fragment">Project Jigsaw</li>
+                            <li class="fragment">Goals
+                                <ul>
+                                    <li class="fragment">strong encapsulation</li>
+                                    <li class="fragment">scalability (down)</li>
+                                    <li class="fragment">reliable configuration</li>
+                                </ul>
+                            </li>
+                            <li class="fragment">2 layers
+                                <ul>
+                                    <li class="fragment">modularize JDK itself</li>
+                                    <li class="fragment">same module system for your app</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="references">
+                            <a href="http://openjdk.java.net/projects/jigsaw/">Project Jigsaw</a>
+                        </div>
+                        <aside class="notes">
+                            <ul>
+                                <li>Jigsaw
+                                    <ul>
+                                        <li>Module system is developed under project jigsaw.</li>
+                                        <li>Originally was planned to Java 8, but moved to Java 9.</li>
+                                        <li>Reason of Java 9 postpones.</li>
+                                        <li>Development started in 2009 - JDK7 in development</li>
+                                    </ul>
+                                </li>
+                                <li>Encapsulation - I can say what to export from my module, rest is hidden. I can define API.</li>
+                                <li>Scalability down, to smaller units. Useful for IOT.</li>
+                                <li>Solve issues with classpath and jar hell. It's clear what I'm using.</li>
+                                <li>operates on 2 layers</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <table summary="This table defines levels of access conferred by a modifier">
+                            <caption style="font-weight: bold">Access Levels</caption>
+                            <tbody>
+                                <tr>
+                                    <th>Modifier</th>
+                                    <th>Class</th>
+                                    <th>Package</th>
+                                    <th>Subclass</th>
+                                    <th>World</th>
+                                </tr>
+                                <tr>
+                                    <td><code>public</code></td>
+                                    <td>Y</td>
+                                    <td>Y</td>
+                                    <td>Y</td>
+                                    <td>Y</td>
+                                </tr>
+                                <tr>
+                                    <td><code>protected</code></td>
+                                    <td>Y</td>
+                                    <td>Y</td>
+                                    <td>Y</td>
+                                    <td>N</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-style: italic">no modifier</td>
+                                    <td>Y</td>
+                                    <td>Y</td>
+                                    <td>N</td>
+                                    <td>N</td>
+                                </tr>
+                                <tr>
+                                    <td><code>private</code></td>
+                                    <td>Y</td>
+                                    <td>N</td>
+                                    <td>N</td>
+                                    <td>N</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="references">
+                            <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html">Controlling Access to Members of a Class</a>
+                        </div>
+                        <aside class="notes">
+                            <ul>
+                                <li>Jigsaw fix this table.</li>
+                                <li>Private - ok, just in class</li>
+                                <li>Default - ok, just in package</li>
+                                <li>Protected - ok, subclasses</li>
+                                <li>Public - World, too much. Big step</li>
+                            </ul>
+                        </aside>
+                    </section>
+                    <section>
+                        <table summary="This table defines levels of access conferred by a modifier">
+                            <tbody>
+                                <tr>
+                                    <th>Modifier</th>
+                                    <th>Class</th>
+                                    <th>Package</th>
+                                    <th>Subclass</th>
+                                    <th>Module</th>
+                                    <th>World</th>
+                                </tr>
+                                <tr>
+                                    <td><code>"exports"</code></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Y</td>
+                                </tr>
+                                <tr>
+                                    <td><code>public</code></td>
+                                    <td>Y</td>
+                                    <td>Y</td>
+                                    <td>Y</td>
+                                    <td>Y</td>
+                                    <td>N</td>
+                                </tr>
+                                <tr>
+                                    <td><code>protected</code></td>
+                                    <td>Y</td>
+                                    <td>Y</td>
+                                    <td>Y</td>
+                                    <td>N</td>
+                                    <td>N</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-style: italic">no modifier</td>
+                                    <td>Y</td>
+                                    <td>Y</td>
+                                    <td>N</td>
+                                    <td>N</td>
+                                    <td>N</td>
+                                </tr>
+                                <tr>
+                                    <td><code>private</code></td>
+                                    <td>Y</td>
+                                    <td>N</td>
+                                    <td>N</td>
+                                    <td>N</td>
+                                    <td>N</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <aside class="notes">
+                            <ul>
+                                <li>I would fix this table like this.</li>
+                                <li>Public is no longer visible to world, but only to module.</li>
+                                <li>I have to explicitly export to be visible to world.</li>
+                            </ul>
+                        </aside>
+                    </section>
                 </section>
             </div>
         </div>
