@@ -47,9 +47,31 @@ ls
 /list
 
 
+Http API
+========
+cd demos/d06_httpApi
+j9m
+fix 301 - Moved permanently
+j9m
+async
+j9m
+
+
+Process API
+===========
+cd demos/d08_processApi
+comment "top" and destroy
+j9 // list all processes
+start htop and top, uncomment top and destroy
+j9 // kills top and htop
+
 
 Stream API
 ==========
 Stream.iterate(0, i -> i < 10, i -> i + 1).forEach(System.out::println)
 Stream.iterate(0, i -> i < 10, i -> i + 1).takeWhile(i -> i < 5).forEach(System.out::println)
 Stream.iterate(0, i -> i < 10, i -> i + 1).dropWhile(i -> i < 5).forEach(System.out::println)
+
+
+Modules
+=======

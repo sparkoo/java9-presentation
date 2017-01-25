@@ -163,6 +163,11 @@
                 </section>
 
                 <section>
+                    <h2>HTML5 Javadoc - search</h2>
+                    <p><a href="http://download.java.net/java/jdk9/docs/api/" target="_blank">[demo]</a></p>
+                </section>
+
+                <section>
                     <h2>Garbage-First (G1)</h2>
                     <ul>
                         <li class="fragment">since Java 7</li>
@@ -437,10 +442,13 @@ Map&lt;Integer, Integer&gt; map2 = Map.ofEntries(
     Map.entry(4, 44));
                         </code></pre>
                         <div class="references">
-                        <a href="http://download.java.net/java/jdk9/docs/api/java/util/List.html">List javadoc</a><br />
-                        <a href="http://download.java.net/java/jdk9/docs/api/java/util/Map.html">Map javadoc</a><br />
-                        <a href="http://download.java.net/java/jdk9/docs/api/java/util/Set.html">Set javadoc</a>
+                            <a href="http://download.java.net/java/jdk9/docs/api/java/util/List.html">List javadoc</a><br />
+                            <a href="http://download.java.net/java/jdk9/docs/api/java/util/Map.html">Map javadoc</a><br />
+                            <a href="http://download.java.net/java/jdk9/docs/api/java/util/Set.html">Set javadoc</a>
                         </div>
+                        <aside class="notes">
+                            clumsy to create collections. New nice factory methods. All creates immutable collectinos.
+                        </aside>
                     </section>
 
                     <section>
@@ -482,14 +490,14 @@ optional.ifPresentOrElse(val -> ...,
                             <li class="fragment">Goals
                                 <ul>
                                     <li class="fragment">strong encapsulation</li>
-                                    <li class="fragment">scalability (down)</li>
                                     <li class="fragment">reliable configuration</li>
+                                    <li class="fragment">scalability (down)</li>
                                 </ul>
                             </li>
                             <li class="fragment">2 layers
                                 <ul>
                                     <li class="fragment">modularize JDK itself</li>
-                                    <li class="fragment">same module system for your app</li>
+                                    <li class="fragment">provides same module system for your app</li>
                                 </ul>
                             </li>
                         </ul>
@@ -507,8 +515,8 @@ optional.ifPresentOrElse(val -> ...,
                                     </ul>
                                 </li>
                                 <li>Encapsulation - I can say what to export from my module, rest is hidden. I can define API.</li>
-                                <li>Scalability down, to smaller units. Useful for IOT.</li>
                                 <li>Solve issues with classpath and jar hell. It's clear what I'm using.</li>
+                                <li>Scalability down, to smaller units. Useful for IOT.</li>
                                 <li>operates on 2 layers</li>
                             </ul>
                         </aside>
@@ -569,7 +577,7 @@ optional.ifPresentOrElse(val -> ...,
                         </aside>
                     </section>
                     <section>
-                        <table summary="This table defines levels of access conferred by a modifier">
+                        <table>
                             <tbody>
                                 <tr>
                                     <th>Modifier</th>
@@ -623,12 +631,70 @@ optional.ifPresentOrElse(val -> ...,
                         </table>
                         <aside class="notes">
                             <ul>
-                                <li>I would fix this table like this.</li>
+                                <li>With Jigsaw, table looks like this.</li>
                                 <li>Public is no longer visible to world, but only to module.</li>
                                 <li>I have to explicitly export to be visible to world.</li>
+                                <li>"exports" is not access level modifier, so I put it to quotation marks.</li>
                             </ul>
                         </aside>
                     </section>
+
+                    <section>
+                        <h2>no more classpath hell</h2>
+                        <p>but how?</p>
+                    </section>
+
+                    <section data-background="http://i.giphy.com/11yhfG1i0SPQyI.gif">
+                        <h1 style="color: #ccc;">modulepath hell!</h1>
+                        <p style="color: #ccc;" class="fragment">we'll see...</p>
+                    </section>
+
+                    <section>
+                        <h2>module-path</h2>
+                        <ul>
+                            <li class="fragment">solve troubles with classpath
+                                <ul>
+                                    <li>everything is allowed</li>
+                                    <li>everything is available to everyone</li>
+                                    <li>not clear what is really loaded</li>
+                                </ul>
+                            </li>
+                            <li class="fragment">each module just once</li>
+                            <li class="fragment">visible just what module exports/reads</li>
+                            <li class="fragment">both compile and runtime</li>
+                        </ul>
+                        <aside class="notes">
+                            <ul>
+                                <li>classpath</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>module</h2>
+                        <ul>
+                            <li>defined by module-info.java</li>
+                            <li>reads other modules</li>
+                            <li>exports own packages</li>
+                            <li>uses/provide services</li>
+                        </ul>
+                        <p>[demo]</p>
+                    </section>
+                </section>
+
+                <section data-background="http://i.giphy.com/V2ZrZfHghzSNi.gif">
+                </section>
+
+                <section>
+                    <h2>materials on my github</h2>
+                    <a href="https://github.com/sparkoo">https://github.com/sparkoo</a>
+                    <br />
+                    <br />
+                    <a href="https://github.com/sparkoo/java9-presentation">https://github.com/sparkoo/java9-presentation</a>
+                    <br />
+                    <a href="https://github.com/sparkoo/java9-demos">https://github.com/sparkoo/java9-demos</a>
+                    <br />
+                    <a href="https://github.com/sparkoo/java9-sort-app-example">https://github.com/sparkoo/java9-sort-app-example</a>
                 </section>
             </div>
         </div>
@@ -643,9 +709,6 @@ optional.ifPresentOrElse(val -> ...,
                 slideNumber: true,
                 mouseWheel: true,
                 transition: 'slide',
-                //parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-                //parallaxBackgroundHorizontal: 1000,
-                //parallaxBackgroundVertical: 20,
 
                 // More info https://github.com/hakimel/reveal.js#dependencies
                 dependencies: [
