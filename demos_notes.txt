@@ -75,3 +75,34 @@ Stream.iterate(0, i -> i < 10, i -> i + 1).dropWhile(i -> i < 5).forEach(System.
 
 Modules
 =======
+cd /opt/java/jdk-9 && ls
+cd jmods && ls          // not rt.jar, but modules, here
+cd bin && ls
+./java -version
+./java
+./java --list-modules   // java.base module javadoc, get implicitly
+
+cd ~/dev/java9-sort-app-example
+cd src
+ll -d */    //list directories, modules
+Main just with random generator
+module-info.java
+sh src/build.sh -> just compile jar run // run just java
+mess with requires, export
+
+sortprovider -> module-info
+require transitive
+services -> uses // sortprovider uses service Sort.class
+sort.{type} -> provides with
+
+jlink -> uncomment in build.sh, comment in run.sh
+sh src/build.sh
+cd mlib/link
+tree
+cd bin
+./app
+./java
+./java -version
+./java --list-modules
+build without sorts and run
+run with sort on modulepath
